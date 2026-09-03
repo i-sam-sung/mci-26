@@ -113,24 +113,29 @@ int main(void)
   MX_USART2_UART_Init();
   MX_USB_PCD_Init();
   /* USER CODE BEGIN 2 */
+  int a = 3;
+  int b = 5;
+  int LHS = (a + b) * (a + b);
+  int RHS = a*a + b*b + 2*a*b;
 
+  myPrintf("a = %d\r\n", a);
+  myPrintf("b =  %d\r\n", b);
+  myPrintf("LHS: %d\r\n", LHS);
+  myPrintf("RHS:  %d\r\n", RHS);
+
+  if (LHS == RHS) {
+      myPrintf("Identity verified: YES\r\n");
+  } else {
+      myPrintf("Identity verified: NO\r\n");
+  }
   /* USER CODE END 2 */
-
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
     /* USER CODE END WHILE */
-    char str[] = "Microcontroller";
-    int x = 10577;
-    int len = strlen(str);
-    for (int i = 0; i < len; i++) {
-        str[i] = str[i] + (str[i] % x); 
-    }
-    myPrintf(str);
-    /* USER CODE BEGIN 3 */
   }
-  /* USER CODE END 3 */
+
 }
 
 /**
